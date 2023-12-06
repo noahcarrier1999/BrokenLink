@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Noahs Test",
+    "description": "Description of your extension",
+    "version": "1.0.0",
+    
+    "permissions": ["tabs", "storage", "contextMenus", "activeTab", "scripting", "windows"],
+    "host_permissions": ["https://byui.instructure.com/*"],
+    
+    "background": {
+      "service_worker": "background.js"
+    },
+    
+    "content_scripts": [
+    ],
+    
+    "action": {
+      "default_popup": "./contextMenu.html"
+    }
+  }
+  
