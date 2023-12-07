@@ -1,0 +1,3 @@
+git checkout -b cleanBackground =  new branch with cleanBackground as name
+git pull = get new main
+git push origin cleanBackground = push to the right place

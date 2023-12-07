@@ -131,6 +131,19 @@ function populateData(Titles1, PageUrlArray1, BrokenLinkArray1) {
   copyAllButton.addEventListener("click", CopyAll);
 
 
+// optional setting
+  //clear all button
+  // let clearAllButton = document.querySelector("#clearAllButton");
+
+  // function ClearAll(){
+  //   titlesTextArea.value = "";
+  //   linkTextTextarea.value = "";
+  //   brokenLinkTextArea.value= "";
+
+    
+  // }
+
+  // clearAllButton.addEventListener("click", ClearAll);
 }
 
 
