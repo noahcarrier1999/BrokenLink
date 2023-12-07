@@ -1,6 +1,6 @@
 
 
-import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
+import { copyAllBrokenLinks } from './Scripts/CopyAllBrokenLinks/copyAllBrokenLinksBackground.js';
 
 
 
@@ -25,7 +25,7 @@ import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
         }, function() {
             chrome.windows.create({
                 type: 'popup',
-                url: './copyAllBrokenLinksPopup.html',
+                url: './Scripts/CopyAllBrokenLinks/copyAllBrokenLinksPopup.html',
                 width: 630,
                 height: 325
             });
