@@ -13,10 +13,14 @@
     },
     
     "content_scripts": [
+      {
+        "matches": ["https://byui.instructure.com/*"],
+        "js" : ["contentScript.js"]
+      }
     ],
     
     "action": {
-      "default_popup": "./copyAllBrokenLinksPopup.html"
+      "default_popup": "./Scripts/CopyAllBrokenLinks/copyAllBrokenLinksPopup.html"
     }
   }
   
