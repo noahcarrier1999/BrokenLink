@@ -16,7 +16,7 @@
     ],
     
     "action": {
-      "default_popup": "./contextMenu.html"
+      "default_popup": "./copyAllBrokenLinksPopup.html"
     }
   }
   

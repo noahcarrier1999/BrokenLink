@@ -4,7 +4,10 @@
 
 
 
-console.log("contextMenu.js loaded");
+//console.log("contextMenu.js loaded");
+
+//gets the broken links that we previously stored in the local storage
+//uses the populateData function
 document.addEventListener('DOMContentLoaded', function() {
   chrome.storage.local.get(['brokenLinksPageUrls', 'brokenLinksURLS', 'brokenLinksTitles'], function(result) {
     console.log(result)
@@ -16,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+//takes all of the arrays as a parameter and cleans them up and stores each of them to 
+//a new array 
+//also contains all of the button funcionality
 function populateData(Titles1, PageUrlArray1, BrokenLinkArray1) {
 
   console.log("recieved message from the background to the contextMenu.js");
@@ -61,11 +66,12 @@ function populateData(Titles1, PageUrlArray1, BrokenLinkArray1) {
 
 
 
-  //Displays the urls in the popup
+  //elements of all of the text areas
   let titlesTextArea = document.getElementById("link_text");
   let linkTextTextarea = document.getElementById("page_urls");
   let brokenLinkTextArea = document.getElementById("broken_links")
 
+  //turns all the arrays to a string
   titlesTextArea.value = Titles.join('\n');
   linkTextTextarea.value = PageUrlArray.join('\n');
   brokenLinkTextArea.value = BrokenLinkArray.join('\n');
