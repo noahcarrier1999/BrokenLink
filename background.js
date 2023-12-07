@@ -1,6 +1,6 @@
-'use strict';
 
 
+import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
 
 
 /********************************
@@ -10,40 +10,9 @@
  * nav items on the settings of a course.
  *
    ********************************/
-// chrome.runtime.onInstalled.addListener(function(){
-//   function copyAllBrokenLinksCM() {
-//     chrome.contextMenus.create({
-//         id: "copy-all-broken",
-//         title: "Copy All Broken Links",
-//         contexts: ["page"],
-//         documentUrlPatterns: ["https://*.instructure.com/courses/*/link_validator"]
-//     });
-  
-
-    chrome.contextMenus.onClicked.addListener(function(info, tab) {
-        if (info.menuItemId == "copy-all-broken") {
-            chrome.tabs.query({
-                "active": true,
-                "currentWindow": true
-            }, function (tabs) {
-                chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
-                    files: ['contentScript.js']
-                });
-            });
-        }
-    });
-//}
 
 
-
-
-
-
-// let PageUrls = [];
-// let BrokenLinks = [];
-// let Titles = [];
-
+    copyAllBrokenLinks();
 
     chrome.runtime.onMessage.addListener(function (request) {
     if (request.action === "sendArraysToBackground") {
@@ -70,20 +39,6 @@
     });
 
 
-  
-       function copyAllBrokenLinksCM() {
-       chrome.contextMenus.create({
-             id: "copy-all-broken",
-             title: "Copy All Broken Links",
-             contexts: ["page"],
-             documentUrlPatterns: ["https://*.instructure.com/courses/*/link_validator"]
-         });
-        }
-
-
-
-// Initialize context menus
-copyAllBrokenLinksCM();
 
 
 
