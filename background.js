@@ -3,17 +3,13 @@
 import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
 
 
-/********************************
- *
- * Adds right-click menu option to
- * Alphabetically organize the disabled
- * nav items on the settings of a course.
- *
-   ********************************/
 
-
+    //imported from backgroundScripts so we can keep the background.js file looking clean
     copyAllBrokenLinks();
 
+    // hears the message from the ContentSctipt and collects the arrays
+    // It then stores the arrays to the local storage
+    // It then opens a popup
     chrome.runtime.onMessage.addListener(function (request) {
     if (request.action === "sendArraysToBackground") {
       console.log("Page Url Array received in the background");
@@ -29,7 +25,7 @@ import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
         }, function() {
             chrome.windows.create({
                 type: 'popup',
-                url: './contextMenu.html',
+                url: './copyAllBrokenLinksPopup.html',
                 width: 630,
                 height: 325
             });
@@ -43,7 +39,7 @@ import { copyAllBrokenLinks } from './backgroundScripts/copyAllBrokenLinks.js';
 
 
 
-//}});
+
   
 
 

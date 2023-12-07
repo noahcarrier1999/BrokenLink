@@ -1,5 +1,5 @@
 
-
+//selects all the page urls on the page and stores it in an array
 function selectHeaderHREFs(){
 
   let PageUrlArray = [];
@@ -40,18 +40,7 @@ function selectHeaderHREFs(){
   
 };
 
-
-
-// function selectHeaderHREFs() {
-//     // Select all <a> elements that are children of <h2> within .result
-//     const links = document.querySelectorAll('.result h2 > a');
-
-//     // Map over the NodeList to extract the href attributes
-//     const hrefs = Array.from(links).map(link => link.getAttribute('href'));
-
-//     return hrefs;
-// }
-
+//selects all of the brokenlinks on the page and stores it in an array
 function selectLinksHREFs() {
     // Select all <a> elements that are children of <h2> within .result
     const links = document.querySelectorAll('.result ul > li > a');
@@ -62,6 +51,7 @@ function selectLinksHREFs() {
     return hrefs;
 }
 
+//selects all of the titles of the Broken links on the page and stores it in an array
 function selectAllTitles()
 {
   const titles = document.querySelectorAll('.result ul > li > a');
@@ -71,17 +61,8 @@ function selectAllTitles()
   return titlesArray;
 }
 
-
-// chrome.runtime.sendMessage({ action: 'openNewPopup' }, function(response) {
-//     if (response.success) {
-//       console.log('New popup opened successfully');
-//     } else {
-//       console.error('Failed to open the new popup');
-//     }
-//   });
-
-
-
+//uses each of the function to collect all of the arrays and sends a message containing
+//all of them to the background script
 function scrape() {
     // Execute the content script in the active tab
     console.log("Received 'startScraping' message");
@@ -117,17 +98,9 @@ function scrape() {
 }
 
 
-  
-  scrape();
+// calling the Scrape function  
+scrape();
 
-
-
-// chrome.extension.onMessage.addListener(function (message, sender, callback) {
-//     if (message.functiontoInvoke == "copyAllBroken") {
-//         console.log("Message Received: " + sender.tab.id);
-//         scrape();
-//     }
-// });
 
 
 
